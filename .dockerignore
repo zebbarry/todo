@@ -1,0 +1,10 @@
+docs/
+tests/
+
+.vscode/
+.idea/
+.git*
+
+.pytest_cache/
+.flake8
+.pre-commit-config.yaml

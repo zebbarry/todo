@@ -1,13 +1,10 @@
-FROM python:3.7
-
-ARG RUN_ENV
+FROM python:3.8
 
 ARG PORT
 
 ARG HOST
 
-ENV YOUR_RUN_ENVENV=${RUN_ENV} \
-    PIP_NO_CACHE_DIR=off \
+ENV PIP_NO_CACHE_DIR=off \
     PIP_DISABLE_PIP_VERSION_CHECK=on \
     PIP_DEFAULT_TIMEOUT=100 \
     POETRY_VERSION=1.1.8 \
@@ -26,7 +23,7 @@ COPY poetry.lock pyproject.toml /code/
 # Project initialization:
 RUN poetry config virtualenvs.create false
 
-RUN poetry install --no-interaction --no-ansi $(test "$RUN_ENV" == production && echo "--no-dev")
+RUN poetry install --no-interaction --no-ansi --no-dev
 
 # Creating folders, and files for a project:
 COPY . /code
