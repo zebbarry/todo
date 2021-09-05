@@ -1,0 +1,13 @@
+# VS Code settings
+.vscode/
+.idea/
+
+# Virtual Environments
+venv/
+
+# Sphinx documentation
+docs/_build/
+docs/build/
+
+# sqlite DB
+*/todo.db
