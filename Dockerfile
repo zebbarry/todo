@@ -13,17 +13,13 @@ ENV PIP_NO_CACHE_DIR=off \
 
 EXPOSE $PORT
 
-# System deps:
-RUN pip install "poetry==$POETRY_VERSION"
-
 # Copy only requirements to cache them in docker layer
 WORKDIR /code
-COPY poetry.lock pyproject.toml /code/
 
-# Project initialization:
-RUN poetry config virtualenvs.create false
+COPY dist /code/dist
 
-RUN poetry install --no-interaction --no-ansi --no-dev
+RUN pip install dist/*.whl \
+    && rm -rf dist
 
 # Creating folders, and files for a project:
 COPY . /code
