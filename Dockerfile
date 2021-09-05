@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.8-slim
 
 ARG PORT
 
@@ -7,12 +7,15 @@ ENV PORT=${PORT} \
 
 EXPOSE $PORT
 
-WORKDIR /code
+WORKDIR /project
+
+# Copy only requirements to cache them in docker layer
+COPY requirements.txt .
+
+# Project initialization:
+RUN pip install -r requirements.txt
 
 # Creating folders, and files for a project:
 COPY . .
-
-RUN pip install dist/*.whl \
-    && rm -rf dist
 
 CMD ["python", "run.py"]
