@@ -13,4 +13,3 @@ class Task(db.Model):
     def __repr__(self):
         """Better string representation of our task."""
         return f"<Task(id={self.id}, body={self.body})>"
-

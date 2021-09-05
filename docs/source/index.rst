@@ -2,4 +2,7 @@
 
 Other sections of the documentation
 -----------------------------------
-.. TODO: Write more pages and add API references
+.. toctree::
+    :maxdepth: 2
+
+    api.rst

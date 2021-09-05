@@ -11,3 +11,7 @@ docs/build/
 
 # sqlite DB
 */todo.db
+
+# Caches
+*/__pycache__/
+.pytest_cache/

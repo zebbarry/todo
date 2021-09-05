@@ -36,6 +36,8 @@
             <div class="my-2 mx-sm-3">
               {% if not task.done %}
               <a class="btn btn-success" href="/done/{{ task.id }}" role="button">Done</a>
+              {% else %}
+              <a class="btn btn-success" href="/undo/{{ task.id }}" role="button">Undo</a>
               {% endif%}
               <a class="btn btn-danger" href="/delete/{{ task.id }}" role="button">Delete</a>
             </div>
